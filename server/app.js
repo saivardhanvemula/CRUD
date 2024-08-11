@@ -15,7 +15,7 @@ con.on("open", () => {
 });
 
 app.use("/students", StudentRouter);
-app.use("/admin",adminRouter)
+app.use("/admins",adminRouter)
 
 app.listen(port, () => {
     console.log("server started");
