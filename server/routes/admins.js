@@ -14,7 +14,44 @@ router.post("/", async (req, res) => {
     });
     // console.log(a1)
     try {
-        const a =await a1.save();
+        const a = await a1.save();
+        res.send(a);
+    } catch (error) {
+        res.send(error);
+    }
+});
+router.post("/:name", async (req, res) => {
+    let name = req.params.name;
+    console.log(name);
+
+    try {
+        const a = await admin.findOne({ name: name }, { _id: 0, __v: 0 });
+        res.send(a);
+    } catch (error) {
+        res.send(error);
+    }
+});
+router.delete("/:name", async (req, res) => {
+    let name = req.params.name;
+    try {
+        const a = await admin.findOneAndDelete({ name: name });
+        res.send(a);
+    } catch (error) {
+        res.send(error);
+    }
+});
+router.patch("/:name", async (req, res) => {
+    let name = req.params.name;
+    let sub = req.body.subject;
+    console.log(name,sub)
+    try {
+        const a = await admin.findOneAndUpdate(
+            { name: name },
+            { subject: sub },
+            { new: true },
+            {_id:0,__v:0}
+        );
+        console.log(a)
         res.send(a);
     } catch (error) {
         res.send(error);

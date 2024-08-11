@@ -11,7 +11,7 @@ mongoose.connect(uri);
 const con = mongoose.connection;
 
 con.on("open", () => {
-    console.log("server connected");
+    console.log("Database connected");
 });
 
 app.use("/students", StudentRouter);
