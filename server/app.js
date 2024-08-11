@@ -6,7 +6,7 @@ const StudentRouter = require("./routes/students");
 const uri = "mongodb://localhost:27017/CBIT";
 const port = 3000;
 const app = express();
-
+app.use(express.json())
 mongoose.connect(uri);
 const con = mongoose.connection;
 
