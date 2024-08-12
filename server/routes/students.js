@@ -23,6 +23,7 @@ router.post("/", async (req, res) => {
         name: req.body.name,
         class: req.body.class,
         roll: req.body.roll,
+        gender:req.body.gender
     });
     try {
         const s = await s1.save();
@@ -50,9 +51,9 @@ router.patch("/:roll/:class",async(req,res)=>{
     
     try {
         const updatedStudent = await student.findOneAndUpdate(
-            { roll: roll },      // Filter: Find the student by roll number
-            { class: newClass },  // Update: Set the new class
-            { new: true }         // Options: Return the updated document
+            { roll: roll },      
+            { class: newClass }, 
+            { new: true }        
         );
         if (!updatedStudent) {
             return res.status(404).send("Student not found");
