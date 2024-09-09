@@ -3,7 +3,7 @@ const router = express.Router();
 const student = require("../models/student");
 router.use(express.json());
 router.get("/", async(req, res) => {
-    const data = await student.find({},{name:1,_id:0});
+    const data = await student.find({});
     console.log(data);
     res.send(data);
 });
@@ -22,8 +22,7 @@ router.post("/", async (req, res) => {
     const s1 = new student({
         name: req.body.name,
         class: req.body.class,
-        roll: req.body.roll,
-        gender:req.body.gender
+        roll: req.body.roll
     });
     try {
         const s = await s1.save();
@@ -42,7 +41,6 @@ router.delete("/:roll", async (req, res) => {
     } catch (e) {
         res.send(e);
     }
-    // res.send(roll);
 });
 router.patch("/:roll/:class",async(req,res)=>{
     const roll = req.params.roll;

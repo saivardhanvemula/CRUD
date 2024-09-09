@@ -12,11 +12,8 @@ const student = new mongoose.Schema({
     roll: {
         type: Number,
         required: true,
-    },
-    gender:{
-        type:Boolean,
-        required:true
     }
 });
 
 module.exports = mongoose.model("student", student);
+
