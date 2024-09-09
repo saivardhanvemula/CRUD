@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const student = require("../models/student");
 router.use(express.json());
-router.get("/", async(req, res) => {
+router.get("/", async (req, res) => {
     const data = await student.find({});
     console.log(data);
     res.send(data);
@@ -20,14 +20,16 @@ router.get("/:roll", async (req, res) => {
 });
 router.post("/", async (req, res) => {
     const s1 = new student({
-        name: req.body.name,
-        class: req.body.class,
-        roll: req.body.roll
+        name: req.body.Name,
+        class: req.body.Class,
+        roll: req.body.Roll,
     });
+    console.log(s1)
     try {
         const s = await s1.save();
         res.send(s);
     } catch (e) {
+        console.log(e);
         res.send(e);
     }
 });
@@ -35,23 +37,24 @@ router.delete("/:roll", async (req, res) => {
     const roll = req.params.roll;
     console.log("deleting details of", roll);
     try {
-        const s = await student.deleteOne({roll});
-        if(s.deletedCount==0)res.send("no student found with roll no"+roll)
-        else res.send(s)
+        const s = await student.deleteOne({ roll });
+        if (s.deletedCount == 0)
+            res.send("no student found with roll no" + roll);
+        else res.send(s);
     } catch (e) {
         res.send(e);
     }
 });
-router.patch("/:roll/:class",async(req,res)=>{
+router.patch("/:roll/:class", async (req, res) => {
     const roll = req.params.roll;
-    const newClass = req.params.class; 
+    const newClass = req.params.class;
     console.log(newClass, roll);
-    
+
     try {
         const updatedStudent = await student.findOneAndUpdate(
-            { roll: roll },      
-            { class: newClass }, 
-            { new: true }        
+            { roll: roll },
+            { class: newClass },
+            { new: true }
         );
         if (!updatedStudent) {
             return res.status(404).send("Student not found");
@@ -59,7 +62,7 @@ router.patch("/:roll/:class",async(req,res)=>{
 
         res.status(200).send(updatedStudent);
     } catch (error) {
-        res.send(error)
+        res.send(error);
     }
-})
+});
 module.exports = router;
