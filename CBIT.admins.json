@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "66b9156c0045dc905464b2f3"
+  },
+  "name": "Sushrut",
+  "subject": "DBMS",
+  "dept": "IT",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b915900045dc905464b2f6"
+  },
+  "name": "Rajesh Kannan",
+  "subject": "FSD",
+  "dept": "IT",
+  "__v": 0
+}]

@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "66de84b1ff583b1ba7cae770"
+  },
+  "name": "Sai vardhan",
+  "class": "it3",
+  "roll": 201,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66de84faff583b1ba7cae772"
+  },
+  "name": "Sai vardhan",
+  "class": "it3",
+  "roll": 200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66de87d2ff583b1ba7cae775"
+  },
+  "name": "sushrut",
+  "class": "it3",
+  "roll": 177,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f99982d619429b3992dd4f"
+  },
+  "name": "sai",
+  "__v": 0
+}]
