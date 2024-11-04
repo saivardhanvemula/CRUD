@@ -21,5 +21,5 @@ app.use("/students", StudentRouter);
 app.use("/admins", adminRouter);
 
 app.listen(PORT, () => {
-    console.log("server started on",port);
+    console.log("server started on",PORT);
 });
